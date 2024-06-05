@@ -7,11 +7,11 @@ const Main = () => {
             <aside id="filtre">
                 <form>
                     <div className="form-group">
-                        <label for="nom">Produit:</label>
+                        <label htmlFor="nom">Produit:</label>
                         <input type="research" className="form-control" name="nom" id="nom" placeholder="Que cherchez-vous?"/>
                     </div>
                     <div className="form-group">
-                        <label for="cat">Categorie:</label>
+                        <label htmlFor="cat">Categorie:</label>
                         <select name="cat" id="cat" className="form-control">
                             <option value="Tout">Toutes les catégories</option>
                             <option value="Habits/Mode">Habits/Mode</option>
@@ -21,11 +21,11 @@ const Main = () => {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label for="prixmin">Prix min:</label>
+                        <label htmlFor="prixmin">Prix min:</label>
                         <input type="text" className="form-control" name="prixmin" id="prixmin" placeholder="Prix min"/>
                     </div>
                     <div className="form-group">
-                        <label for="prixmax">Prix max:</label>
+                        <label htmlFor="prixmax">Prix max:</label>
                         <input type="text" className="form-control" name="prixmax" id="prixmax" placeholder="Prix max"/>
                     </div>
                     <div>

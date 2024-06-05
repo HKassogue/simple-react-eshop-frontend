@@ -5,7 +5,7 @@ const Section = () => {
     return (
         <section id="produits">
             <div id="produits-liste">
-                { produits.map((produit, key) => (
+                { produits.map((produit, index) => (
                     <Produit 
                         key={produit.id}   
                         photo={produit.photo} 
