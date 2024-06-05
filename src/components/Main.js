@@ -1,9 +1,9 @@
 import Section from "./Section";
 
-const Main = () => {
+const Main = ({panier, updatePanier}) => {
     return (
         <main>
-            <Section />
+            <Section panier={panier} updatePanier={updatePanier} />
             <aside id="filtre">
                 <form>
                     <div className="form-group">

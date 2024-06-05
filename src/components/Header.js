@@ -2,7 +2,11 @@ import logo from '../img/icons/ico-eshop-s.png';
 import user_avatar from '../img/user.png';
 import User from './User';
 
-function Header() {
+function Header({panier, updatePanier}) {
+    const nbrItemsInPanier = panier.reduce(
+        (nbr, item) => nbr + item.qte, 0
+    )
+
     return (
         <header>
             <div id="header-top">
@@ -15,7 +19,7 @@ function Header() {
                     <nav>
                         <ul>
                             <li><a href="index.html" className="active">Accueil</a></li>
-                            <li><a href="panier.html" className="">Panier (<span id="nav-panier">0</span>)</a></li>
+                            <li><a href="panier.html" className="">Panier (<span id="nav-panier">{nbrItemsInPanier}</span>)</a></li>
                             <li><a href="#" className="">Contact</a></li>                        
                         </ul>
                     </nav>

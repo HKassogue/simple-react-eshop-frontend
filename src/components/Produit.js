@@ -1,4 +1,15 @@
-const Produit = ({photo, nom, prix}) => {
+const Produit = ({photo, nom, prix, panier, updatePanier}) => {
+    const addToPanier = (nom, prix) => {
+        const itemInPanier = panier.find(item => item.nom===nom)
+        if(itemInPanier) {
+            const panierSansItem = panier.filter(item => item.nom !== nom)
+            updatePanier([...panierSansItem, {nom, prix, qte: itemInPanier.qte + 1}])
+        } else {
+            updatePanier([...panier, {nom, prix, qte: 1}])
+        }
+        console.log(panier)
+    }
+
     return (
         <div className="produit-badge">
             <div className="produit-image">
@@ -9,8 +20,8 @@ const Produit = ({photo, nom, prix}) => {
                 <h3>{prix} F</h3>
             </div>
             <div className="produit-bouton">
-                <button className="ajout-panier-btn" id="1">+Panier</button>
-                <button className="details-btn" id="1">Détails</button>
+                <button className="ajout-panier-btn" onClick={() => {addToPanier(nom, prix)}}>+Panier</button>
+                <button className="details-btn">Détails</button>
             </div>
         </div>
     );
