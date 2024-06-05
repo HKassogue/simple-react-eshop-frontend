@@ -1,7 +1,9 @@
 function User({user_avatar}) {
     return (
         <div id="user">
-            <div className="profile">
+            <div className="profile" 
+                onClick={userMenuToggle}
+                onBlur={userMenuToggle}>
                 <h3>Username<br/><span>Vu le 01/01/2024</span></h3>
                 <div className="imgBx">
                     <img src={user_avatar} alt='Avatar du user'/>
@@ -18,6 +20,12 @@ function User({user_avatar}) {
             </div>
         </div>
     );
+}
+
+function userMenuToggle(event) {
+    const menu = document.querySelector('.menu')
+    event.preventDefault()
+    menu.classList.toggle('active')
 }
 
 export default User;

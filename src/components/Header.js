@@ -27,7 +27,7 @@ function Header() {
                     Faites le plein du panier &#129321;
                 </div>
                 <div id="banniere_bouton">
-                    <marquee behavior direction>
+                    <marquee behavior='true' direction='left'>
                     Livraison partout au Mali. Satisfait ou remboursé sur 3 jours !
                     </marquee>
                     <a href="produits.html" className="bouton_rouge">Voir les produits <img src="img/icons/fleche.png" alt="" /></a>
@@ -36,13 +36,5 @@ function Header() {
         </header>
     );
 }
-
-// let profile = document.querySelector('.profile')
-// let menu = document.querySelector('.menu')
-
-// profile.addEventListener('click', function(event) {
-//     event.preventDefault()
-//     menu.classList.toggle('active')
-// })
 
 export default Header;

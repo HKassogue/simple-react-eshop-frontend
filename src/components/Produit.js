@@ -2,7 +2,7 @@ const Produit = ({photo, nom, prix}) => {
     return (
         <div className="produit-badge">
             <div className="produit-image">
-                <img src={`../img/products/${photo}`} alt={nom} />
+                <img src={require(`../img/products/${photo}`)} alt={nom} />
             </div>
             <div className="produit-details">
                 <h2>{nom}</h2>
