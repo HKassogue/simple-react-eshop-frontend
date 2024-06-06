@@ -1,6 +1,8 @@
 import logo from '../img/icons/ico-eshop-s.png';
 import user_avatar from '../img/user.png';
 import User from './User';
+import {NavLink} from 'react-router-dom';
+
 
 function Header({panier, updatePanier}) {
     const nbrItemsInPanier = panier.reduce(
@@ -18,9 +20,9 @@ function Header({panier, updatePanier}) {
                     <User user_avatar={user_avatar}/>
                     <nav>
                         <ul>
-                            <li><a href="index.html" className="active">Accueil</a></li>
-                            <li><a href="panier.html" className="">Panier (<span id="nav-panier">{nbrItemsInPanier}</span>)</a></li>
-                            <li><a href="#" className="">Contact</a></li>                        
+                            <li><NavLink to="/" className={({isActive}) => (isActive ? 'active' : '')}>Accueil</NavLink></li>
+                            <li><NavLink to="/panier" className={({isActive}) => (isActive ? 'active' : '')}>Panier (<span id="nav-panier">{nbrItemsInPanier}</span>)</NavLink></li>
+                            <li><NavLink to="/contact" className="">Contact</NavLink></li>                        
                         </ul>
                     </nav>
                 </div>

@@ -1,3 +1,6 @@
+import {Link} from 'react-router-dom';
+
+
 const Produit = ({photo, nom, prix, panier, updatePanier}) => {
     const addToPanier = (nom, prix) => {
         const itemInPanier = panier.find(item => item.nom===nom)
@@ -21,7 +24,7 @@ const Produit = ({photo, nom, prix, panier, updatePanier}) => {
             </div>
             <div className="produit-bouton">
                 <button className="ajout-panier-btn" onClick={() => {addToPanier(nom, prix)}}>+Panier</button>
-                <button className="details-btn">Détails</button>
+                <Link className="details-btn" to={'/details/'+nom}>Détails</Link>
             </div>
         </div>
     );
