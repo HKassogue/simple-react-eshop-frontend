@@ -1,19 +1,20 @@
 import React from 'react';
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import Accueil from './Accueil';
+import Panier from './Panier';
 
 
 function App() {
   let [panier, updatePanier] = useState([]);
 
   return (
-    <React.Fragment>
-      <Header panier={panier} updatePanier={updatePanier}/>
-      <Main panier={panier} updatePanier={updatePanier}/>
-      <Footer />
-    </React.Fragment>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Accueil panier={panier} updatePanier={updatePanier}/>}></Route>
+        <Route path='/panier' element={<Panier />}></Route>
+      </Routes>
+    </Router>
   );
 }
 
