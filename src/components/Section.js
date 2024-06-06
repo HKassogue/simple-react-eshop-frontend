@@ -1,7 +1,7 @@
-import {produits} from '../datas/stock';
+// import {produits} from '../datas/stock';
 import Produit from './Produit';
 
-const Section = ({panier, updatePanier}) => {
+const Section = ({panier, updatePanier, produits}) => {
     return (
         <section id="produits">
             <div id="produits-liste">
