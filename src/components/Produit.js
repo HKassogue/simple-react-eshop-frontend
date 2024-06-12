@@ -1,17 +1,12 @@
-const Produit = ({ produit, panier, updatePanier }) => {
+import { useProducts } from "../hooks/products.context";
+
+const Produit = ({ produit }) => {
+  const { products, panier, updatePanier } = useProducts();
+
   const addToPanier = (produit) => {
-    const itemInPanier = panier.find(
-      (item) => item.produit.nom === produit.nom
-    );
-    if (itemInPanier) {
-      const panierSansItem = panier.filter(
-        (item) => item.produit.nom !== produit.nom
-      );
-      updatePanier([...panierSansItem, { produit, qte: itemInPanier.qte + 1 }]);
-    } else {
-      updatePanier([...panier, { produit, qte: 1 }]);
-    }
-    //console.log(panier)
+    const newPanier = [...panier].filter((item) => item.id === produit.id)
+    if (newPanier.length > 0) return
+    updatePanier([...panier, { produit, qte: 1 }])
   };
 
   return (

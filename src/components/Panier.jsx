@@ -2,11 +2,13 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import PanierItem from "./PanierItem";
+import { useProducts } from "../hooks/products.context";
+function Panier() {
+  const { panier } = useProducts();
 
-const Panier = ({ panier, updatePanier }) => {
   return (
     <React.Fragment>
-      <Header panier={panier} updatePanier={updatePanier} />
+      <Header />
       <main>
         <div id="panier">
           <table>
@@ -21,20 +23,27 @@ const Panier = ({ panier, updatePanier }) => {
               </tr>
             </thead>
             <tbody>
-              {panier.map((item, index) => (
-                <PanierItem produit={item.produit} qte={item.qte} key={index} />
-              ))}
+              {panier &&
+                panier.map((item, index) => (
+                  // <h1>Hello</h1>
+                  <PanierItem
+                    produit={item.produit}
+                    qte={item.qte}
+                    key={index}
+                  />
+                ))}
             </tbody>
             <tfoot>
               <tr>
-                <td colspan="2" className="grandtotal">
+                <td colSpan="2" className="grandtotal">
                   GRAND TOTAL (F CFA)
                 </td>
-                <td colspan="4" className="grandtotalv">
-                  {panier.reduce(
-                    (total, item) => total + item.produit.prix * item.qte,
-                    0
-                  )}
+                <td colSpan="4" className="grandtotalv">
+                  {panier &&
+                    panier.reduce(
+                      (total, item) => total + item.produit.prix * item.qte,
+                      0
+                    )}
                 </td>
               </tr>
             </tfoot>
@@ -45,9 +54,10 @@ const Panier = ({ panier, updatePanier }) => {
           </div>
         </div>
       </main>
+
       <Footer />
     </React.Fragment>
   );
-};
+}
 
 export default Panier;
