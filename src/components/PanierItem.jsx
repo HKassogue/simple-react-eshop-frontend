@@ -1,8 +1,7 @@
-import React from "react";
-import addIcon from "../img/icons/add.png";
-import minusIcon from "../img/icons/minus.png";
-import delIcon from "../img/icons/delete.png";
-
+import React from 'react'
+import addIcon from '../img/icons/add.png'
+import minusIcon from '../img/icons/minus.png'
+import delIcon from '../img/icons/delete.png'
 
 const PanierItem = ({ produit, qte, panier, updatePanier }) => {
   const handleUpdateQte = (increment = true) => {
@@ -48,7 +47,7 @@ const PanierItem = ({ produit, qte, panier, updatePanier }) => {
         </button>
       </td>
     </tr>
-  );
-};
+  )
+}
 
-export default PanierItem;
+export default PanierItem

@@ -1,19 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 const Produit = ({ produit, panier, updatePanier }) => {
   const addToPanier = (produit) => {
-    const itemInPanier = panier.find(
-      (item) => item.produit.id === produit.id
-    );
+    const itemInPanier = panier.find((item) => item.produit.id === produit.id)
     if (itemInPanier) {
       const panierSansItem = panier.filter(
         (item) => item.produit.id !== produit.id
-      );
-      updatePanier([...panierSansItem, { produit, qte: itemInPanier.qte + 1 }]);
+      )
+      updatePanier([...panierSansItem, { produit, qte: itemInPanier.qte + 1 }])
     } else {
-      updatePanier([...panier, { produit, qte: 1 }]);
+      updatePanier([...panier, { produit, qte: 1 }])
     }
-  };
+  }
 
   return (
     <div className="produit-badge">
@@ -31,20 +29,17 @@ const Produit = ({ produit, panier, updatePanier }) => {
         <button
           className="ajout-panier-btn"
           onClick={() => {
-            addToPanier(produit);
+            addToPanier(produit)
           }}
         >
           +Panier
         </button>
-        <Link 
-          className="details-btn" 
-          to={'/details/' + produit.id}
-        >
+        <Link className="details-btn" to={'/details/' + produit.id}>
           Détails
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Produit;
+export default Produit

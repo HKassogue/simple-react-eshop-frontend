@@ -1,10 +1,10 @@
-import logo from "../img/icons/ico-eshop-s.png";
-import user_avatar from "../img/user.png";
-import User from "./User";
-import { NavLink } from "react-router-dom";
+import logo from '../img/icons/ico-eshop-s.png'
+import user_avatar from '../img/user.png'
+import User from './User'
+import { NavLink } from 'react-router-dom'
 
-function Header({ panier, updatePanier }) {
-  const nbrItemsInPanier = panier.reduce((nbr, item) => nbr + item.qte, 0);
+function Header({ panier }) {
+  const nbrItemsInPanier = panier.reduce((nbr, item) => nbr + item.qte, 0)
 
   return (
     <header>
@@ -20,7 +20,7 @@ function Header({ panier, updatePanier }) {
               <li>
                 <NavLink
                   to="/"
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                  className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                   Accueil
                 </NavLink>
@@ -28,7 +28,7 @@ function Header({ panier, updatePanier }) {
               <li>
                 <NavLink
                   to="/panier"
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                  className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                   Panier (<span id="nav-panier">{nbrItemsInPanier}</span>)
                 </NavLink>
@@ -36,7 +36,7 @@ function Header({ panier, updatePanier }) {
               <li>
                 <NavLink
                   to="/contact"
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                  className={({ isActive }) => (isActive ? 'active' : '')}
                 >
                   Contact
                 </NavLink>
@@ -55,13 +55,13 @@ function Header({ panier, updatePanier }) {
             Livraison partout au Mali. Satisfait ou remboursé sur 3 jours !
           </marquee>
           <a href="produits.html" className="bouton_rouge">
-            Voir les produits{" "}
-            <img src={require("../img/icons/fleche.png")} alt="" />
+            Voir les produits{' '}
+            <img src={require('../img/icons/fleche.png')} alt="" />
           </a>
         </div>
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header
