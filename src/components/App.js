@@ -4,6 +4,7 @@ import Accueil from './Accueil';
 import Panier from './Panier';
 import Connexion from './Connexion';
 import Inscription from './Inscription';
+import Details from './Details';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/panier' element={<Panier panier={panier} updatePanier={updatePanier} />}></Route>
         <Route path='/inscription' element={<Inscription panier={panier} updatePanier={updatePanier} />}></Route>
         <Route path='/connexion' element={<Connexion panier={panier} updatePanier={updatePanier} />}></Route>
+        <Route path="/details/:produitID" element={<Details panier={panier} updatePanier={updatePanier} />}> </Route>
       </Routes>
     </Router>
   );

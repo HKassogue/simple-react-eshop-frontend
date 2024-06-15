@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Produit = ({ produit, panier, updatePanier }) => {
   const addToPanier = (produit) => {
     const itemInPanier = panier.find(
@@ -34,7 +36,12 @@ const Produit = ({ produit, panier, updatePanier }) => {
         >
           +Panier
         </button>
-        <button className="details-btn">Détails</button>
+        <Link 
+          className="details-btn" 
+          to={'/details/' + produit.id}
+        >
+          Détails
+        </Link>
       </div>
     </div>
   );
