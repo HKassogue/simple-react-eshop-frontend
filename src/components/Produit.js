@@ -1,17 +1,16 @@
 const Produit = ({ produit, panier, updatePanier }) => {
   const addToPanier = (produit) => {
     const itemInPanier = panier.find(
-      (item) => item.produit.nom === produit.nom
+      (item) => item.produit.id === produit.id
     );
     if (itemInPanier) {
       const panierSansItem = panier.filter(
-        (item) => item.produit.nom !== produit.nom
+        (item) => item.produit.id !== produit.id
       );
       updatePanier([...panierSansItem, { produit, qte: itemInPanier.qte + 1 }]);
     } else {
       updatePanier([...panier, { produit, qte: 1 }]);
     }
-    //console.log(panier)
   };
 
   return (
