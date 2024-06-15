@@ -1,3 +1,7 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+
 function User({user_avatar}) {
     return (
         <div id="user">
@@ -9,8 +13,8 @@ function User({user_avatar}) {
             </div>
             <div className="menu">
                 <ul>
-                    <li><a href="connexion.html"><ion-icon name="log-in-outline"></ion-icon>Connexion</a></li>
-                    <li><a href="inscription.html"><ion-icon name="person-add-outline"></ion-icon>Inscription</a></li>
+                    <li><Link to="/connexion"><ion-icon name="log-in-outline"></ion-icon>Connexion</Link></li>
+                    <li><Link to="/inscription"><ion-icon name="person-add-outline"></ion-icon>Inscription</Link></li>
                     <li><a href="#"><ion-icon name="person-outline"></ion-icon>Profile</a></li>
                     <li><a href="#"><ion-icon name="cart-outline"></ion-icon>Mes commandes</a></li>
                     <li><a href="deconnexion.html"><ion-icon name="log-out-outline"></ion-icon>Déconnexion</a></li>

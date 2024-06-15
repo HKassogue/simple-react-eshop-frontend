@@ -1,11 +1,19 @@
 import {produits} from '../datas/stock';
 import Produit from './Produit';
 
-const Section = ({panier, updatePanier}) => {
+const Section = ({ panier, updatePanier, filters }) => {
+    const filteredProduits = produits.filter((produit) => {
+        const nomMatch = produit.nom.toLowerCase().includes(filters.nom.toLowerCase());
+        const catMatch = filters.cat === 'Tout' || produit.categorie === filters.cat;
+        const prixMinMatch = filters.prixmin === '' || produit.prix >= parseFloat(filters.prixmin);
+        const prixMaxMatch = filters.prixmax === '' || produit.prix <= parseFloat(filters.prixmax);
+        return nomMatch && catMatch && prixMinMatch && prixMaxMatch;
+    });
+    
     return (
         <section id="produits">
             <div id="produits-liste">
-                { produits.map((produit, index) => (
+                { filteredProduits.map((produit) => (
                     <Produit 
                         key={produit.id}   
                         produit={produit} 
