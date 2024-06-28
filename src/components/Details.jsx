@@ -1,8 +1,10 @@
 import React from 'react'
 import { useParams } from 'react-router'
-import { produits } from '../datas/stock'
+import { produitsContext } from '../hooks/products.context'
+import { useContext } from 'react'
 
 function Details({ panier, updatePanier }) {
+  const { produits } = useContext(produitsContext)
   const { produitID } = useParams()
   const produit = produits.find((item) => item.id === produitID)
 

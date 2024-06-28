@@ -1,7 +1,9 @@
-import { produits } from '../datas/stock'
 import Produit from './Produit'
+import { produitsContext } from '../hooks/products.context'
+import { useContext } from 'react'
 
 const Section = ({ panier, updatePanier, filters }) => {
+  const { produits } = useContext(produitsContext)
   const filteredProduits = produits.filter((produit) => {
     const nomMatch = produit.nom
       .toLowerCase()
