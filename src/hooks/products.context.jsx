@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react'
 import axios from 'axios'
 
-const APP_URI = 'http://localhost:8000'
+export const APP_URI = 'http://localhost:8000'
 
 export const produitsContext = createContext()
 

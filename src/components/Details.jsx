@@ -2,11 +2,23 @@ import React from 'react'
 import { useParams } from 'react-router'
 import { produitsContext } from '../hooks/products.context'
 import { useContext } from 'react'
+import { APP_URI } from '../hooks/products.context'
+import axios from 'axios'
 
 function Details({ panier, updatePanier }) {
-  const { produits } = useContext(produitsContext)
   const { produitID } = useParams()
+  /*
+  const { produits } = useContext(produitsContext)
   const produit = produits.find((item) => item.id === produitID)
+  /*/
+  const getProduit = async () => {
+    const response = await axios.get(`${APP_URI}/produits/${produitID}`)
+    const { data } = await response.data
+    return data
+  }
+  const produit = getProduit()
+  //*/
+  console.log(produit)
 
   const addToPanier = () => {
     const itemInPanier = panier.find((item) => item.produit.id === produit.id)
