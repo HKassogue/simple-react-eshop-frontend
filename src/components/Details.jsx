@@ -4,6 +4,7 @@ import { produitsContext } from '../hooks/products.context'
 import { useContext } from 'react'
 import { APP_URI } from '../hooks/products.context'
 import axios from 'axios'
+import useSWR from 'swr'
 
 function Details({ panier, updatePanier }) {
   const { produitID } = useParams()
@@ -13,10 +14,12 @@ function Details({ panier, updatePanier }) {
   /*/
   const getProduit = async () => {
     const response = await axios.get(`${APP_URI}/produits/${produitID}`)
-    const { data } = await response.data
+    const { data } = response.data
     return data
   }
-  const produit = getProduit()
+  const { data } = useSWR('produit', getProduit)
+  if (!data) return <h2>Chargement ...</h2>
+  const produit = data
   //*/
   console.log(produit)
 
